@@ -6,28 +6,61 @@
 //
 
 import XCTest
-@testable import NetSceneServer
 
 class NetSceneServerTests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        NetSceneServer.shared.listener?.cancel()
+        NetSceneServer.shared = try! NetSceneServer()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        NetSceneServer.shared.listener?.cancel()
+        NetSceneServer.shared = try! NetSceneServer()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testServerStartAndStop() throws {
+        
+        let expectation = XCTestExpectation(description: "Starting up the server")
+        
+        NetSceneServer.shared.startServer()
+        
+        if(NetSceneServer.shared.listener!.state == .ready){
+            expectation.fulfill()
         }
+        
+        NetSceneServer.shared.listener!.stateUpdateHandler = { state in
+            switch(state){
+                case .ready:
+                    expectation.fulfill()
+                default :
+                    print(state)
+            }
+        }
+        
+        wait(for: [expectation], timeout: 10)
+        NetSceneServer.shared.listener?.cancel()
+    }
+    
+    func testServerDoesNotStartTwice() throws {
+        
+        NetSceneServer.shared.startServer()
+        
+        if(NetSceneServer.shared.listener!.state == .ready){
+            XCTAssertThrowsError(try NetSceneServer())
+        }
+        
+        NetSceneServer.shared.listener!.stateUpdateHandler = { state in
+            switch(state){
+                case .ready:
+                    XCTAssertThrowsError(try! NetSceneServer(), "not creating duplicate servers")
+                    print("ready")
+                default :
+                    print(state)
+            }
+        }
+        
+        NetSceneServer.shared.listener?.cancel()
     }
 
 }

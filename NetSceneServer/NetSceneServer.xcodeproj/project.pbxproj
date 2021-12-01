@@ -14,6 +14,28 @@
 		0FAD88B92757D68000D4D59E /* NetSceneServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88B82757D68000D4D59E /* NetSceneServerTests.swift */; };
 		0FAD88C32757D68000D4D59E /* NetSceneServerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88C22757D68000D4D59E /* NetSceneServerUITests.swift */; };
 		0FAD88C52757D68000D4D59E /* NetSceneServerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88C42757D68000D4D59E /* NetSceneServerUITestsLaunchTests.swift */; };
+		0FAD88D42757E33800D4D59E /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D32757E33800D4D59E /* Scene.swift */; };
+		0FAD88D52757E33800D4D59E /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D32757E33800D4D59E /* Scene.swift */; };
+		0FAD88D72757E35500D4D59E /* SceneTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D62757E35500D4D59E /* SceneTest.swift */; };
+		0FAD88D92757E50000D4D59E /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D82757E50000D4D59E /* SceneObject.swift */; };
+		0FAD88DA2757E50000D4D59E /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D82757E50000D4D59E /* SceneObject.swift */; };
+		0FAD88DC2757E5A600D4D59E /* SceneObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88DB2757E5A600D4D59E /* SceneObjectTest.swift */; };
+		0FB947CC2757FDE60054D1FB /* Lobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947CB2757FDE60054D1FB /* Lobby.swift */; };
+		0FB947CD2757FDE60054D1FB /* Lobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947CB2757FDE60054D1FB /* Lobby.swift */; };
+		0FB947CF2757FE100054D1FB /* NetSceneClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947CE2757FE100054D1FB /* NetSceneClient.swift */; };
+		0FB947D02757FE100054D1FB /* NetSceneClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947CE2757FE100054D1FB /* NetSceneClient.swift */; };
+		0FB947D627580CF60054D1FB /* LobbyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947D527580CF60054D1FB /* LobbyList.swift */; };
+		0FB947D727580CF60054D1FB /* LobbyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947D527580CF60054D1FB /* LobbyList.swift */; };
+		0FB947D927580D3D0054D1FB /* NetSceneServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947D827580D3D0054D1FB /* NetSceneServer.swift */; };
+		0FB947DA27580D3D0054D1FB /* NetSceneServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947D827580D3D0054D1FB /* NetSceneServer.swift */; };
+		0FB947DC275811B50054D1FB /* ClientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947DB275811B50054D1FB /* ClientList.swift */; };
+		0FB947DD275811B50054D1FB /* ClientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947DB275811B50054D1FB /* ClientList.swift */; };
+		0FB947DE275813110054D1FB /* Lobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947CB2757FDE60054D1FB /* Lobby.swift */; };
+		0FB947DF275813470054D1FB /* NetSceneClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947CE2757FE100054D1FB /* NetSceneClient.swift */; };
+		0FB947E02758136B0054D1FB /* NetSceneServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947D827580D3D0054D1FB /* NetSceneServer.swift */; };
+		0FB947E1275813FA0054D1FB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D32757E33800D4D59E /* Scene.swift */; };
+		0FB947E2275815050054D1FB /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D82757E50000D4D59E /* SceneObject.swift */; };
+		0FB947E52758193A0054D1FB /* LobbyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947E32758193A0054D1FB /* LobbyTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +67,16 @@
 		0FAD88BE2757D68000D4D59E /* NetSceneServerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetSceneServerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAD88C22757D68000D4D59E /* NetSceneServerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneServerUITests.swift; sourceTree = "<group>"; };
 		0FAD88C42757D68000D4D59E /* NetSceneServerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneServerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0FAD88D32757E33800D4D59E /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		0FAD88D62757E35500D4D59E /* SceneTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTest.swift; sourceTree = "<group>"; };
+		0FAD88D82757E50000D4D59E /* SceneObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneObject.swift; sourceTree = "<group>"; };
+		0FAD88DB2757E5A600D4D59E /* SceneObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneObjectTest.swift; sourceTree = "<group>"; };
+		0FB947CB2757FDE60054D1FB /* Lobby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lobby.swift; sourceTree = "<group>"; };
+		0FB947CE2757FE100054D1FB /* NetSceneClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneClient.swift; sourceTree = "<group>"; };
+		0FB947D527580CF60054D1FB /* LobbyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyList.swift; sourceTree = "<group>"; };
+		0FB947D827580D3D0054D1FB /* NetSceneServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneServer.swift; sourceTree = "<group>"; };
+		0FB947DB275811B50054D1FB /* ClientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientList.swift; sourceTree = "<group>"; };
+		0FB947E32758193A0054D1FB /* LobbyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +127,8 @@
 		0FAD88A52757D67F00D4D59E /* NetSceneServer */ = {
 			isa = PBXGroup;
 			children = (
+				0FB947D427580CD90054D1FB /* View */,
+				0FAD88D22757E26F00D4D59E /* Model */,
 				0FAD88A62757D67F00D4D59E /* NetSceneServerApp.swift */,
 				0FAD88A82757D67F00D4D59E /* ContentView.swift */,
 				0FAD88AA2757D68000D4D59E /* Assets.xcassets */,
@@ -116,6 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				0FAD88B82757D68000D4D59E /* NetSceneServerTests.swift */,
+				0FAD88D62757E35500D4D59E /* SceneTest.swift */,
+				0FAD88DB2757E5A600D4D59E /* SceneObjectTest.swift */,
+				0FB947E32758193A0054D1FB /* LobbyTest.swift */,
 			);
 			path = NetSceneServerTests;
 			sourceTree = "<group>";
@@ -127,6 +164,27 @@
 				0FAD88C42757D68000D4D59E /* NetSceneServerUITestsLaunchTests.swift */,
 			);
 			path = NetSceneServerUITests;
+			sourceTree = "<group>";
+		};
+		0FAD88D22757E26F00D4D59E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0FAD88D32757E33800D4D59E /* Scene.swift */,
+				0FAD88D82757E50000D4D59E /* SceneObject.swift */,
+				0FB947CB2757FDE60054D1FB /* Lobby.swift */,
+				0FB947CE2757FE100054D1FB /* NetSceneClient.swift */,
+				0FB947D827580D3D0054D1FB /* NetSceneServer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FB947D427580CD90054D1FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0FB947D527580CF60054D1FB /* LobbyList.swift */,
+				0FB947DB275811B50054D1FB /* ClientList.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +317,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FB947DC275811B50054D1FB /* ClientList.swift in Sources */,
 				0FAD88A92757D67F00D4D59E /* ContentView.swift in Sources */,
+				0FB947CC2757FDE60054D1FB /* Lobby.swift in Sources */,
+				0FAD88D92757E50000D4D59E /* SceneObject.swift in Sources */,
+				0FB947D927580D3D0054D1FB /* NetSceneServer.swift in Sources */,
 				0FAD88A72757D67F00D4D59E /* NetSceneServerApp.swift in Sources */,
+				0FB947D627580CF60054D1FB /* LobbyList.swift in Sources */,
+				0FAD88D42757E33800D4D59E /* Scene.swift in Sources */,
+				0FB947CF2757FE100054D1FB /* NetSceneClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +333,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FAD88DC2757E5A600D4D59E /* SceneObjectTest.swift in Sources */,
+				0FAD88D52757E33800D4D59E /* Scene.swift in Sources */,
+				0FB947CD2757FDE60054D1FB /* Lobby.swift in Sources */,
+				0FB947E52758193A0054D1FB /* LobbyTest.swift in Sources */,
+				0FB947DA27580D3D0054D1FB /* NetSceneServer.swift in Sources */,
+				0FAD88DA2757E50000D4D59E /* SceneObject.swift in Sources */,
 				0FAD88B92757D68000D4D59E /* NetSceneServerTests.swift in Sources */,
+				0FB947D02757FE100054D1FB /* NetSceneClient.swift in Sources */,
+				0FAD88D72757E35500D4D59E /* SceneTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +350,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FAD88C52757D68000D4D59E /* NetSceneServerUITestsLaunchTests.swift in Sources */,
+				0FB947E2275815050054D1FB /* SceneObject.swift in Sources */,
+				0FB947E02758136B0054D1FB /* NetSceneServer.swift in Sources */,
+				0FB947DE275813110054D1FB /* Lobby.swift in Sources */,
 				0FAD88C32757D68000D4D59E /* NetSceneServerUITests.swift in Sources */,
+				0FB947E1275813FA0054D1FB /* Scene.swift in Sources */,
+				0FB947DD275811B50054D1FB /* ClientList.swift in Sources */,
+				0FB947D727580CF60054D1FB /* LobbyList.swift in Sources */,
+				0FB947DF275813470054D1FB /* NetSceneClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
