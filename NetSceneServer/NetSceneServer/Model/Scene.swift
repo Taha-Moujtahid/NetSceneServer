@@ -9,7 +9,7 @@ import Foundation
 
 struct Scene {
     static let DEBUG = true
-    
+    //jenkins test
     var objects : [SceneObject]
     
     init(){
