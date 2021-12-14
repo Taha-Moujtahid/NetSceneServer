@@ -8,9 +8,7 @@
 import Foundation
 
 struct Scene {
-    #if DEBUG
-        static let DEBUG = true
-    #endif
+    static let DEBUG = true
     
     var objects : [SceneObject]
     
