@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "test" > /users/bytesserver/Desktop/test.txt
+open /Users/bytesserver/.jenkins/workspace/NetSceneServer/NetSceneServer/build/Release/NetSceneServer.app
+
