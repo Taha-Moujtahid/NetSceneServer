@@ -23,7 +23,7 @@ class NetSceneServer : ObservableObject {
     init() throws {
         print("Starting server")
         do{
-            listener = try NWListener(using: NWParameters.tcp, on: NWEndpoint.Port(20181))
+            listener = try NWListener(using: NWParameters.tcp, on: NWEndpoint.Port(51211))
             queue = DispatchQueue(label: "ServerQueue")
         }
     }
