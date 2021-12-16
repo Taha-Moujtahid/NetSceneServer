@@ -9,27 +9,34 @@ import XCTest
 
 class NetSceneServerTests: XCTestCase {
 
+    override func setUp() {
+        print("SETUP TEST")
+    }
+    
+    override func tearDown() {
+        NetSceneServer.listener?.cancel()
+        print("TEARDOWN")
+    }
+    
     override func setUpWithError() throws {
-        NetSceneServer.shared.listener?.cancel()
-        NetSceneServer.shared = try! NetSceneServer()
+        
     }
 
     override func tearDownWithError() throws {
-        NetSceneServer.shared.listener?.cancel()
-        NetSceneServer.shared = try! NetSceneServer()
+        
     }
 
     func testServerStartAndStop() throws {
         
         let expectation = XCTestExpectation(description: "Starting up the server")
         
-        NetSceneServer.shared.startServer()
+        NetSceneServer.startServer()
         
-        if(NetSceneServer.shared.listener!.state == .ready){
+        if(NetSceneServer.listener!.state == .ready){
             expectation.fulfill()
         }
         
-        NetSceneServer.shared.listener!.stateUpdateHandler = { state in
+        NetSceneServer.listener!.stateUpdateHandler = { state in
             switch(state){
                 case .ready:
                     expectation.fulfill()
@@ -39,18 +46,17 @@ class NetSceneServerTests: XCTestCase {
         }
         
         wait(for: [expectation], timeout: 10)
-        NetSceneServer.shared.listener?.cancel()
     }
     
     func testServerDoesNotStartTwice() throws {
         
-        NetSceneServer.shared.startServer()
+        NetSceneServer.startServer()
         
-        if(NetSceneServer.shared.listener!.state == .ready){
+        if(NetSceneServer.listener!.state == .ready){
             XCTAssertThrowsError(try NetSceneServer())
         }
         
-        NetSceneServer.shared.listener!.stateUpdateHandler = { state in
+        NetSceneServer.listener!.stateUpdateHandler = { state in
             switch(state){
                 case .ready:
                     XCTAssertThrowsError(try! NetSceneServer(), "not creating duplicate servers")
@@ -60,7 +66,35 @@ class NetSceneServerTests: XCTestCase {
             }
         }
         
-        NetSceneServer.shared.listener?.cancel()
+    }
+    
+    func testServerReachble() throws{
+        NetSceneServer.startServer()
+        let expectation = XCTestExpectation(description: "Server listening to connections test")
+        
+        let client = NetSceneClient(connection: LocalNetSceneConnection)
+        let queue = DispatchQueue(label: "LocalClientQueue")
+        
+        client.setOnReceive { data in
+            print(String(data: data, encoding: .ascii))
+        }
+        
+        client.connection.start(queue: queue)
+        
+        print("waiting for server to be ready")
+        while(NetSceneServer.listener!.state != .ready){ }
+        
+        print("waiting for client to be ready")
+        while(client.connection.state != .ready){  }
+        
+        print("server.state: \(NetSceneServer.listener!.state)")
+        print("client.state: \(client.connection.state)")
+        
+        client.send("test".data(using: .ascii)!){
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10)
     }
 
 }

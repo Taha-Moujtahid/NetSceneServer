@@ -7,39 +7,44 @@
 
 import Foundation
 
-struct SceneObject : Decodable {
+struct SceneObject : Decodable{
     
-    let objectID: String
-    var name: String?
-    var tags = [String]()
-    var position: Vec3
-    var rotation: Vec3
+    var data : SceneObjectData
     
     init(objectID: String){
-        position = Vec3(x: 0,y: 0,z: 0)
-        rotation = Vec3(x: 0,y: 0,z: 0)
-        self.objectID = objectID
+        self.data = SceneObjectData(objectID: objectID, position: Vec3(0,0,0), rotation: Vec3(0,0,0))
     }
     
     init(objectID: String, position: Vec3, rotation: Vec3){
-        self.position = position
-        self.rotation = rotation
-        self.objectID = objectID
+        self.data = SceneObjectData(objectID: objectID, position: position, rotation: rotation)
     }
     
     mutating func addTag(_ tag: String) -> Bool{
-        if(tags.contains(tag)){
+        if(data.tags.contains(tag)){
             return false
         }else{
-            tags.append(tag)
+            data.tags.append(tag)
             return true
         }
     }
 }
 
-struct Vec3 : Decodable , Equatable {
+struct Vec3 : Codable , Equatable {
     var x : Float
     var y : Float
     var z : Float
+    
+    init(_ x:Float, _ y: Float, _ z: Float){
+        self.x = x
+        self.y = y
+        self.z = z
+    }
 }
 
+struct SceneObjectData : Codable{
+    let objectID: String
+    var name: String?
+    var tags = [String]()
+    var position: Vec3
+    var rotation: Vec3
+}

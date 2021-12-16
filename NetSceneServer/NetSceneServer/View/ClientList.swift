@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Network
 
 struct ClientList: View {
     
@@ -26,9 +27,9 @@ struct ClientList: View {
 struct ClientList_Previews: PreviewProvider {
     static var previews: some View {
         let lobby = Lobby()
-        _ = lobby.addClient(NetSceneClient())
-        _ = lobby.addClient(NetSceneClient())
-        _ = lobby.addClient(NetSceneClient())
+        _ = lobby.addClient(NetSceneClient(connection: LocalNetSceneConnection))
+        _ = lobby.addClient(NetSceneClient(connection: LocalNetSceneConnection))
+        _ = lobby.addClient(NetSceneClient(connection: LocalNetSceneConnection))
         return ClientList(lobby: lobby)
     }
 }

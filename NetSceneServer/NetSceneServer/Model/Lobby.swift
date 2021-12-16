@@ -8,6 +8,7 @@
 import Foundation
 
 class Lobby : Identifiable , ObservableObject{
+    
     var id = UUID().uuidString
     
     var name : String?
@@ -45,7 +46,7 @@ class Lobby : Identifiable , ObservableObject{
     
     func broadcastSceneObject(_ sceneObject: SceneObject){
         clients.forEach { client in
-            client.send(sceneObject)
+            try! client.send(JSONEncoder().encode(sceneObject.data), onSended: nil)
         }
     }
     

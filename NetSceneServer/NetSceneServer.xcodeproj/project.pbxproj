@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F930263276B6B3200378D06 /* NetMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F930262276B6B3200378D06 /* NetMessage.swift */; };
 		0FAD88A72757D67F00D4D59E /* NetSceneServerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88A62757D67F00D4D59E /* NetSceneServerApp.swift */; };
 		0FAD88A92757D67F00D4D59E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88A82757D67F00D4D59E /* ContentView.swift */; };
 		0FAD88AB2757D68000D4D59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FAD88AA2757D68000D4D59E /* Assets.xcassets */; };
@@ -36,6 +37,10 @@
 		0FB947E1275813FA0054D1FB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D32757E33800D4D59E /* Scene.swift */; };
 		0FB947E2275815050054D1FB /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88D82757E50000D4D59E /* SceneObject.swift */; };
 		0FB947E52758193A0054D1FB /* LobbyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB947E32758193A0054D1FB /* LobbyTest.swift */; };
+		0FFFF17D276A84D500AFA333 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFF17C276A84D500AFA333 /* ServerController.swift */; };
+		0FFFF17F276A8BE900AFA333 /* LobbyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFF17E276A8BE900AFA333 /* LobbyHandler.swift */; };
+		0FFFF182276A921E00AFA333 /* JoinLobbyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFF181276A921E00AFA333 /* JoinLobbyMessage.swift */; };
+		0FFFF184276A927600AFA333 /* NetSceneServerMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFF183276A927600AFA333 /* NetSceneServerMessageHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F930262276B6B3200378D06 /* NetMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetMessage.swift; sourceTree = "<group>"; };
 		0FAD88A32757D67F00D4D59E /* NetSceneServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetSceneServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAD88A62757D67F00D4D59E /* NetSceneServerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneServerApp.swift; sourceTree = "<group>"; };
 		0FAD88A82757D67F00D4D59E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +83,10 @@
 		0FB947D827580D3D0054D1FB /* NetSceneServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneServer.swift; sourceTree = "<group>"; };
 		0FB947DB275811B50054D1FB /* ClientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientList.swift; sourceTree = "<group>"; };
 		0FB947E32758193A0054D1FB /* LobbyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyTest.swift; sourceTree = "<group>"; };
+		0FFFF17C276A84D500AFA333 /* ServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
+		0FFFF17E276A8BE900AFA333 /* LobbyHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyHandler.swift; sourceTree = "<group>"; };
+		0FFFF181276A921E00AFA333 /* JoinLobbyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinLobbyMessage.swift; sourceTree = "<group>"; };
+		0FFFF183276A927600AFA333 /* NetSceneServerMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneServerMessageHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,11 +179,14 @@
 		0FAD88D22757E26F00D4D59E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0FFFF180276A920600AFA333 /* Messages */,
 				0FAD88D32757E33800D4D59E /* Scene.swift */,
 				0FAD88D82757E50000D4D59E /* SceneObject.swift */,
 				0FB947CB2757FDE60054D1FB /* Lobby.swift */,
 				0FB947CE2757FE100054D1FB /* NetSceneClient.swift */,
 				0FB947D827580D3D0054D1FB /* NetSceneServer.swift */,
+				0FFFF17E276A8BE900AFA333 /* LobbyHandler.swift */,
+				0FFFF183276A927600AFA333 /* NetSceneServerMessageHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,8 +196,18 @@
 			children = (
 				0FB947D527580CF60054D1FB /* LobbyList.swift */,
 				0FB947DB275811B50054D1FB /* ClientList.swift */,
+				0FFFF17C276A84D500AFA333 /* ServerController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0FFFF180276A920600AFA333 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFF181276A921E00AFA333 /* JoinLobbyMessage.swift */,
+				0F930262276B6B3200378D06 /* NetMessage.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,11 +342,16 @@
 			files = (
 				0FB947DC275811B50054D1FB /* ClientList.swift in Sources */,
 				0FAD88A92757D67F00D4D59E /* ContentView.swift in Sources */,
+				0FFFF17D276A84D500AFA333 /* ServerController.swift in Sources */,
+				0F930263276B6B3200378D06 /* NetMessage.swift in Sources */,
 				0FB947CC2757FDE60054D1FB /* Lobby.swift in Sources */,
 				0FAD88D92757E50000D4D59E /* SceneObject.swift in Sources */,
+				0FFFF17F276A8BE900AFA333 /* LobbyHandler.swift in Sources */,
+				0FFFF182276A921E00AFA333 /* JoinLobbyMessage.swift in Sources */,
 				0FB947D927580D3D0054D1FB /* NetSceneServer.swift in Sources */,
 				0FAD88A72757D67F00D4D59E /* NetSceneServerApp.swift in Sources */,
 				0FB947D627580CF60054D1FB /* LobbyList.swift in Sources */,
+				0FFFF184276A927600AFA333 /* NetSceneServerMessageHandler.swift in Sources */,
 				0FAD88D42757E33800D4D59E /* Scene.swift in Sources */,
 				0FB947CF2757FE100054D1FB /* NetSceneClient.swift in Sources */,
 			);
@@ -561,7 +589,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.TahaTech.NetSceneServerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -586,7 +614,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.TahaTech.NetSceneServerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

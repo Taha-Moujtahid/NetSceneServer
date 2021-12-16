@@ -19,21 +19,21 @@ class SceneObjectTest: XCTestCase {
 
     func testSceneObjectInitWithoutValues() throws {
         let obj = SceneObject(objectID: "testObject")
-        XCTAssertTrue(obj.position.x == 0 && obj.position.y == 0 && obj.position.z == 0)
-        XCTAssertTrue(obj.rotation.x == 0 && obj.rotation.y == 0 && obj.rotation.z == 0)
-        XCTAssertTrue(obj.objectID == "testObject")
+        XCTAssertTrue(obj.data.position.x == 0 && obj.data.position.y == 0 && obj.data.position.z == 0)
+        XCTAssertTrue(obj.data.rotation.x == 0 && obj.data.rotation.y == 0 && obj.data.rotation.z == 0)
+        XCTAssertTrue(obj.data.objectID == "testObject")
     }
     
     func testSceneObjectInitWithValues() throws {
-        let pos = Vec3(x: 1,y: 2,z: 3)
-        let rot = Vec3(x: 3,y: 2,z: 1)
+        let pos = Vec3(1,2,3)
+        let rot = Vec3(3,2,1)
         
         let obj = SceneObject(objectID: "testObject",position: pos, rotation: rot)
-        XCTAssertTrue(obj.position == pos)
-        XCTAssertTrue(obj.rotation == rot)
-        XCTAssertFalse(obj.position == rot)
-        XCTAssertFalse(obj.rotation == pos)
-        XCTAssertTrue(obj.objectID == "testObject")
+        XCTAssertTrue(obj.data.position == pos)
+        XCTAssertTrue(obj.data.rotation == rot)
+        XCTAssertFalse(obj.data.position == rot)
+        XCTAssertFalse(obj.data.rotation == pos)
+        XCTAssertTrue(obj.data.objectID == "testObject")
     }
 
     func testSceneObjectTagAdding() throws {
@@ -42,11 +42,11 @@ class SceneObjectTest: XCTestCase {
         _ = obj.addTag("b")
         _ = obj.addTag("tag1")
         
-        XCTAssertTrue(obj.tags.contains("a"))
-        XCTAssertTrue(obj.tags.contains("b"))
-        XCTAssertTrue(obj.tags.contains("tag1"))
-        XCTAssertFalse(obj.tags.contains("123"))
-        XCTAssertFalse(obj.tags.contains("4562"))
+        XCTAssertTrue(obj.data.tags.contains("a"))
+        XCTAssertTrue(obj.data.tags.contains("b"))
+        XCTAssertTrue(obj.data.tags.contains("tag1"))
+        XCTAssertFalse(obj.data.tags.contains("123"))
+        XCTAssertFalse(obj.data.tags.contains("4562"))
     }
     
     func testSceneObjectTagAddingDuplicate() throws {
@@ -58,11 +58,11 @@ class SceneObjectTest: XCTestCase {
         XCTAssertFalse(obj.addTag("a"))
         XCTAssertFalse(obj.addTag("b"))
         XCTAssertFalse(obj.addTag("tag1"))
-        XCTAssertTrue(obj.tags.contains("a"))
-        XCTAssertTrue(obj.tags.contains("b"))
-        XCTAssertTrue(obj.tags.contains("tag1"))
-        XCTAssertFalse(obj.tags.contains("123"))
-        XCTAssertFalse(obj.tags.contains("4562"))
+        XCTAssertTrue(obj.data.tags.contains("a"))
+        XCTAssertTrue(obj.data.tags.contains("b"))
+        XCTAssertTrue(obj.data.tags.contains("tag1"))
+        XCTAssertFalse(obj.data.tags.contains("123"))
+        XCTAssertFalse(obj.data.tags.contains("4562"))
     }
     
     func testPerformanceExample() throws {

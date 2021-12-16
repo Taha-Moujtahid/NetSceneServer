@@ -19,7 +19,7 @@ struct Scene {
     }
     
     mutating func addObject(_ obj: SceneObject) -> Bool {
-        if(objects.contains(where: { sceneObj in sceneObj.objectID == obj.objectID })){
+        if(objects.contains(where: { sceneObj in sceneObj.data.objectID == obj.data.objectID })){
             return false
         } else {
             objects.append(obj);
@@ -29,13 +29,13 @@ struct Scene {
     
     mutating func removeObject(objectID: String){
         objects.removeAll { obj in
-            obj.objectID == objectID
+            obj.data.objectID == objectID
         }
     }
     
     func contains(objectID : String) -> Bool{
         return objects.contains { obj in
-            obj.objectID == objectID
+            obj.data.objectID == objectID
         }
     }
     

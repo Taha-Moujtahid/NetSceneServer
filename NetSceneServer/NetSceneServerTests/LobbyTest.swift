@@ -19,14 +19,14 @@ class LobbyTest: XCTestCase {
 
     func testAddClientToLobby() throws {
         let lobby = Lobby()
-        let client = NetSceneClient()
+        let client = NetSceneClient(connection: LocalNetSceneConnection)
         XCTAssertTrue(lobby.addClient(client))
         XCTAssertTrue(lobby.clients.contains(where: {c in c.id == client.id}))
     }
     
     func testAddDuplicateClientToLobby() throws {
         let lobby = Lobby()
-        let client = NetSceneClient()
+        let client = NetSceneClient(connection: LocalNetSceneConnection)
         XCTAssertTrue(lobby.addClient(client))
         XCTAssertTrue(lobby.clients.contains(where: {c in c.id == client.id}))
         XCTAssertFalse(lobby.addClient(client))

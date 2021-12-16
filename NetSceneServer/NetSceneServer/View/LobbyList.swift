@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct LobbyList: View {
-    @StateObject var sceneServer = NetSceneServer.shared
+    @ObservedObject var lobbyHandler = LobbyHandler.shared
     var onSelect : (Lobby)->()
     var body: some View {
         VStack{
             Text("Lobbies:").font(Font.headline)
-            List(sceneServer.lobbies){ lobby in
+            List(lobbyHandler.lobbies){ lobby in
                 Text(lobby.name ?? lobby.id)
                 .onTapGesture {
                     onSelect(lobby)
                 }
             }
             Button {
-                NetSceneServer.shared.createLobby()
+                LobbyHandler.shared.createLobby()
             } label: {
                 Text("Add Lobby")
             }

@@ -9,8 +9,11 @@ import SwiftUI
 
 @main
 struct NetSceneServerApp: App {
+    
     var body: some SwiftUI.Scene {
-        WindowGroup {
+        //NetSceneServer.startServer()
+        
+        return WindowGroup {
             ContentView()
         }
     }
