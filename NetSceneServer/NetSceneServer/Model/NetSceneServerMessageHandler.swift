@@ -17,6 +17,9 @@ struct NetSceneServerMessageHandler {
                 case JoinLobbyMessage.messageType:
                     handleMessage( try? JSONDecoder().decode(JoinLobbyMessage.self, from: JSONSerialization.data(withJSONObject: message, options: [])) )
                     
+                case VideoStreamMessage.messageType:
+                    handleMessage( try? JSONDecoder().decode(VideoStreamMessage.self, from: JSONSerialization.data(withJSONObject: message, options: [])) )
+                    
                 default:
                     handleMessage(message)
                     

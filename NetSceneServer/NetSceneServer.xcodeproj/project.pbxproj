@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F930263276B6B3200378D06 /* NetMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F930262276B6B3200378D06 /* NetMessage.swift */; };
+		0F930265276B8C3F00378D06 /* VideoStreamMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F930264276B8C3F00378D06 /* VideoStreamMessage.swift */; };
 		0FAD88A72757D67F00D4D59E /* NetSceneServerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88A62757D67F00D4D59E /* NetSceneServerApp.swift */; };
 		0FAD88A92757D67F00D4D59E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD88A82757D67F00D4D59E /* ContentView.swift */; };
 		0FAD88AB2757D68000D4D59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FAD88AA2757D68000D4D59E /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		0F930262276B6B3200378D06 /* NetMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetMessage.swift; sourceTree = "<group>"; };
+		0F930264276B8C3F00378D06 /* VideoStreamMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStreamMessage.swift; sourceTree = "<group>"; };
 		0FAD88A32757D67F00D4D59E /* NetSceneServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetSceneServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAD88A62757D67F00D4D59E /* NetSceneServerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSceneServerApp.swift; sourceTree = "<group>"; };
 		0FAD88A82757D67F00D4D59E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				0FFFF181276A921E00AFA333 /* JoinLobbyMessage.swift */,
 				0F930262276B6B3200378D06 /* NetMessage.swift */,
+				0F930264276B8C3F00378D06 /* VideoStreamMessage.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				0FB947DC275811B50054D1FB /* ClientList.swift in Sources */,
 				0FAD88A92757D67F00D4D59E /* ContentView.swift in Sources */,
 				0FFFF17D276A84D500AFA333 /* ServerController.swift in Sources */,
+				0F930265276B8C3F00378D06 /* VideoStreamMessage.swift in Sources */,
 				0F930263276B6B3200378D06 /* NetMessage.swift in Sources */,
 				0FB947CC2757FDE60054D1FB /* Lobby.swift in Sources */,
 				0FAD88D92757E50000D4D59E /* SceneObject.swift in Sources */,

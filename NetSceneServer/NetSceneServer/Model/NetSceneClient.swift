@@ -13,10 +13,12 @@ let LocalNetSceneConnection = NWConnection(host: "localhost", port: NWEndpoint.P
 struct NetSceneClient : Identifiable{
     let id = UUID().uuidString
     let connection : NWConnection
+    var lobby : Lobby?
     
     init(connection: NWConnection){
         self.connection = connection
     }
+    
     
     func send(_ data : Data , onSended: ( ()->() )? ){
         
