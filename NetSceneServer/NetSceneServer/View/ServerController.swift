@@ -26,7 +26,10 @@ struct ServerController: View {
             Color( isServerOnline ? .green : .red)
                 .frame(width: 20, height: 20)
                 .cornerRadius(10)
-        }.padding()
+        }.padding().onAppear {
+            NetSceneServer.startServer()
+            isServerOnline.toggle()
+        }
     }
 }
 
