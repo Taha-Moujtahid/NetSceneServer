@@ -33,6 +33,14 @@ struct NetSceneClient : Identifiable{
         
     }
     
+    func broadcast(_ data: Data){
+        if(lobby != nil){
+            lobby!.clients.filter { client in client.id != self.id }.forEach { client in
+                client.send(data, onSended: nil)
+            }
+        }
+    }
+    
     func setOnReceive(_ onReceive : @escaping (Data)->()){
         connection.receiveMessage { completeContent, contentContext, isComplete, error in
             if error == nil {

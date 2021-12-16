@@ -15,4 +15,16 @@ class LobbyHandler : ObservableObject {
     func createLobby(){
         lobbies.append(Lobby())
     }
+    
+    func joinLobby(client : NetSceneClient, lobbyID : String){
+        if let lobby = lobbies.first(where: { it in it.id == lobbyID }) {
+            if let data = try? JSONEncoder().encode(JoinLobbyResponse(success: lobby.addClient(client))) {
+                client.send( data , onSended: nil)
+            }
+        }else{
+            print("LobbyNotFound!")
+            client.send( try! JSONEncoder().encode(JoinLobbyResponse(success: false)) , onSended: nil)
+        }
+        
+    }
 }

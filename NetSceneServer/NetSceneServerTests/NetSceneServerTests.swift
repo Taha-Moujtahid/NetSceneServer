@@ -53,13 +53,13 @@ class NetSceneServerTests: XCTestCase {
         NetSceneServer.startServer()
         
         if(NetSceneServer.listener!.state == .ready){
-            XCTAssertThrowsError(try NetSceneServer())
+            XCTAssertThrowsError(NetSceneServer())
         }
         
         NetSceneServer.listener!.stateUpdateHandler = { state in
             switch(state){
                 case .ready:
-                    XCTAssertThrowsError(try! NetSceneServer(), "not creating duplicate servers")
+                    XCTAssertThrowsError(NetSceneServer(), "not creating duplicate servers")
                     print("ready")
                 default :
                     print(state)
@@ -76,7 +76,7 @@ class NetSceneServerTests: XCTestCase {
         let queue = DispatchQueue(label: "LocalClientQueue")
         
         client.setOnReceive { data in
-            print(String(data: data, encoding: .ascii))
+            print(String(data: data, encoding: .ascii)!)
         }
         
         client.connection.start(queue: queue)

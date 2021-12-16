@@ -10,13 +10,13 @@ import Foundation
 struct VideoStreamMessage : Codable, NetMessage {
     static var messageType = "VideoStreamMessage"
     
-    var frame : Data
+    var frame : String // NEEDS TO BE BASE64 ENCODED!
 }
 
 extension NetSceneServerMessageHandler {
-    func handleMessage( _ message : VideoStreamMessage?){
-        if let message = message {
-            print("VideoStreamMessage: frame: \(message.frame)")
+    func handleMessage( client: NetSceneClient, _ message : VideoStreamMessage?){
+        if message != nil {
+            client.broadcast(try! JSONEncoder().encode(message))
         }else{
             print("VideoStreamMessage with insufficient data")
         }

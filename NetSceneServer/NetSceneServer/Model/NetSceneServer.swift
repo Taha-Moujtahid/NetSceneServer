@@ -19,7 +19,7 @@ class NetSceneServer : ObservableObject {
     static var listener : NWListener? = try! NWListener(using: NWParameters.udp, on: NWEndpoint.Port(51211))
     static let queue = DispatchQueue(label: "ServerQueue")
     
-    static var connections = [NWConnection]()
+    static var clients = [NetSceneClient]()
     
     static func startServer(){
         print("Starting the Server")
@@ -30,9 +30,9 @@ class NetSceneServer : ObservableObject {
         if(NetSceneServer.listener!.state != .ready){
             NetSceneServer.listener!.newConnectionHandler = { connection in
                 connection.start(queue: queue)
-                connection.send(content: "Server reachable: Welcome".data(using: .ascii), completion: .idempotent)
-                setupClientReceiver(connection: connection)
-                connections.append(connection)
+                let newClient = NetSceneClient(connection: connection)
+                receiveNextMessage(client: newClient)
+                clients.append(newClient)
             }
         
             NetSceneServer.listener!.start(queue: queue)
@@ -43,23 +43,19 @@ class NetSceneServer : ObservableObject {
     
     static func stopServer(){
         print("Stopping the Server")
-        connections.forEach { connection in
-            connection.cancel()
+        clients.forEach { client in
+            client.connection.cancel()
         }
         
         NetSceneServer.listener?.cancel()
         NetSceneServer.listener = nil
     }
     
-    static func setupClientReceiver(connection: NWConnection){
-        connection.receiveMessage { completeContent, contentContext, isComplete, error in
+    static func receiveNextMessage(client: NetSceneClient){
+        client.connection.receiveMessage { completeContent, contentContext, isComplete, error in
             if completeContent != nil {
-                print(String(data: completeContent!, encoding: .ascii))
-                
-                messageHandler.handleData(completeContent!)
-                
-                
-                setupClientReceiver(connection: connection)
+                messageHandler.handleData(client: client, data: completeContent!)
+                receiveNextMessage(client: client)
             }
         }
     }

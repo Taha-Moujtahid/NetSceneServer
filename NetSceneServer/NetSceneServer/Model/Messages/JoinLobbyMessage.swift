@@ -12,10 +12,15 @@ struct JoinLobbyMessage : Codable , NetMessage{
     var lobbyID : String
 }
 
+struct JoinLobbyResponse : Codable , NetMessage{
+    static var messageType = "JoinLobbyResponse"
+    var success : Bool
+}
+
 extension NetSceneServerMessageHandler {
-    func handleMessage(_ message : JoinLobbyMessage?){
+    func handleMessage(client: NetSceneClient, _ message : JoinLobbyMessage?){
         if let message = message {
-            print("Join Message : \(message.lobbyID)")
+            LobbyHandler.shared.joinLobby(client: client, lobbyID: message.lobbyID)
         }else{
             print("Join Message with insufficient data")
         }

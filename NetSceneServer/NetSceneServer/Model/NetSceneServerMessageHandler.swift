@@ -9,29 +9,29 @@ import Foundation
 
 struct NetSceneServerMessageHandler {
     
-    func handleData(_ data : Data){
+    func handleData(client : NetSceneClient, data : Data){
         if let message = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] {
             if(message["messageType"] != nil){
                 switch(message["messageType"] as! String){
                     
                 case JoinLobbyMessage.messageType:
-                    handleMessage( try? JSONDecoder().decode(JoinLobbyMessage.self, from: JSONSerialization.data(withJSONObject: message, options: [])) )
-                    
+                    handleMessage( client: client, try? JSONDecoder().decode(JoinLobbyMessage.self, from: JSONSerialization.data(withJSONObject: message, options: [])) )
+                    break
                 case VideoStreamMessage.messageType:
-                    handleMessage( try? JSONDecoder().decode(VideoStreamMessage.self, from: JSONSerialization.data(withJSONObject: message, options: [])) )
-                    
+                    handleMessage( client: client, try? JSONDecoder().decode(VideoStreamMessage.self, from: JSONSerialization.data(withJSONObject: message, options: [])) )
+                    break
                 default:
-                    handleMessage(message)
+                    handleMessage(client: client, message)
                     
                 }
             }else{
-                handleMessage(message)
+                handleMessage(client: client, message)
             }
         }
     }
     
-    func handleMessage(_ message : [String:Any]){
-        print("WARNING Unhandeld Message : \(message)")
+    func handleMessage(client: NetSceneClient, _ message : [String:Any]){
+        print("WARNING Unhandeld Message : \(message) from client : \(client)")
     }
     
 }
