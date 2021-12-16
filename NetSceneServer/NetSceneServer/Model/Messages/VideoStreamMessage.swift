@@ -17,6 +17,10 @@ extension NetSceneServerMessageHandler {
     func handleMessage( client: NetSceneClient, _ message : VideoStreamMessage?){
         if message != nil {
             client.broadcast(try! JSONEncoder().encode(message))
+            //TODO: REMOVE SEND BACK MAKES NO SENSE JUST FOR TESTING DEMO
+            client.connection.send(content: try! JSONEncoder().encode(message), completion: .contentProcessed({ error in
+                
+            }))
         }else{
             print("VideoStreamMessage with insufficient data")
         }
