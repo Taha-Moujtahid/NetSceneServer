@@ -12,7 +12,7 @@ struct LobbyList: View {
     var onSelect : (Lobby)->()
     var body: some View {
         VStack{
-            Text("Lobbies:").font(Font.headline)
+            Text("Lobbies:").font(Font.headline).padding(12)
             List(lobbyHandler.lobbies){ lobby in
                 Text(lobby.name ?? lobby.id)
                 .onTapGesture {
@@ -23,7 +23,7 @@ struct LobbyList: View {
                 LobbyHandler.shared.createLobby()
             } label: {
                 Text("Add Lobby")
-            }
+            }.padding(8)
         }
     }
 }

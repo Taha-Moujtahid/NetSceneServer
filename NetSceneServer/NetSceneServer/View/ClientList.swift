@@ -15,7 +15,7 @@ struct ClientList: View {
     var body: some View {
         VStack{
             if(lobby != nil){
-                Text("Clients:").font(Font.headline)
+                Text("Clients:").font(Font.headline).padding(12)
                 List(lobby!.clients){ client in
                     Text(client.id)
                 }

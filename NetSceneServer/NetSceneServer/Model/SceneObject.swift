@@ -7,26 +7,35 @@
 
 import Foundation
 
-struct SceneObject : Decodable{
+class SceneObject : Entity, Decodable{
     
-    var data : SceneObjectData
+    private var data : SceneObjectData?
     
-    init(objectID: String){
-        self.data = SceneObjectData(objectID: objectID, position: Vec3(0,0,0), rotation: Vec3(0,0,0))
+    init(objectType : String){
+        self.data = SceneObjectData(objectType: objectType, position: Vec3(0,0,0), rotation: Vec3(0,0,0))
     }
     
-    init(objectID: String, position: Vec3, rotation: Vec3){
-        self.data = SceneObjectData(objectID: objectID, position: position, rotation: rotation)
+    func getData()->SceneObjectData{
+        return data!
     }
     
-    mutating func addTag(_ tag: String) -> Bool{
-        if(data.tags.contains(tag)){
+    func setData(_ data: SceneObjectData){
+        self.data = data
+    }
+    
+    init(objectType : String, position: Vec3, rotation: Vec3){
+        self.data = SceneObjectData(objectType: objectType, position: position, rotation: rotation)
+    }
+    
+    func addTag(_ tag: String) -> Bool{
+        if(data!.tags.contains(tag)){
             return false
         }else{
-            data.tags.append(tag)
+            data!.tags.append(tag)
             return true
         }
     }
+    
 }
 
 struct Vec3 : Codable , Equatable {
@@ -42,7 +51,7 @@ struct Vec3 : Codable , Equatable {
 }
 
 struct SceneObjectData : Codable{
-    let objectID: String
+    let objectType: String
     var name: String?
     var tags = [String]()
     var position: Vec3

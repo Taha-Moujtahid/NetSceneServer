@@ -46,7 +46,13 @@ class Lobby : Identifiable , ObservableObject{
     
     func broadcastSceneObject(_ sceneObject: SceneObject){
         clients.forEach { client in
-            try! client.send(JSONEncoder().encode(sceneObject.data), onSended: nil)
+            client.send(try! JSONEncoder().encode(sceneObject.getData()), onSended: nil)
+        }
+    }
+    
+    func broadcastMessage(_ data: Data, onSended: (() -> ())?){
+        clients.forEach { client in
+            client.send(data, onSended: onSended)
         }
     }
     

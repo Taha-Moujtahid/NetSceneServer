@@ -9,7 +9,6 @@ import Foundation
 
 struct Scene {
     static let DEBUG = true
-    //jenkins test
     var objects : [SceneObject]
     
     init(){
@@ -19,7 +18,7 @@ struct Scene {
     }
     
     mutating func addObject(_ obj: SceneObject) -> Bool {
-        if(objects.contains(where: { sceneObj in sceneObj.data.objectID == obj.data.objectID })){
+        if(objects.contains(where: { sceneObj in sceneObj.id == obj.id })){
             return false
         } else {
             objects.append(obj);
@@ -27,15 +26,21 @@ struct Scene {
         }
     }
     
-    mutating func removeObject(objectID: String){
-        objects.removeAll { obj in
-            obj.data.objectID == objectID
+    func getObject(_ entityID: String) -> SceneObject? {
+        return objects.first { obj in
+            obj.id == entityID
         }
     }
     
-    func contains(objectID : String) -> Bool{
+    mutating func removeObject(entityID: String){
+        objects.removeAll { obj in
+            obj.id == entityID
+        }
+    }
+    
+    func contains(entityID : String) -> Bool{
         return objects.contains { obj in
-            obj.data.objectID == objectID
+            obj.id == entityID
         }
     }
     
