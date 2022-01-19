@@ -8,7 +8,7 @@
 import Foundation
 import Network
 
-let LocalNetSceneConnection = NWConnection(host: "localhost", port: NWEndpoint.Port(51211), using: .udp)
+let LocalNetSceneConnection = NWConnection(host: "109.90.110.70", port: NWEndpoint.Port(51211), using: .tcp)
 
 struct NetSceneClient : Identifiable{
     let id = UUID().uuidString

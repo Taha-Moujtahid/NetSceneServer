@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UnlockEntitytMessage : Codable , NetMessage{
+struct UnlockEntityMessage : Codable , NetMessage{
     static var messageType = "CreateObjectMessage"
     var entityID : String
 }
@@ -18,7 +18,7 @@ struct UnlockEntityResponse : Codable, NetMessage {
 }
 
 extension NetSceneServerMessageHandler {
-    func handleMessage(client: NetSceneClient, _ message : UnlockEntitytMessage?){
+    func handleMessage(client: NetSceneClient, _ message : UnlockEntityMessage?){
         if let message = message {
             if let success = client.lobby?.scene.getObject(message.entityID)?.unlock(by: client.id){
                 client.send(try! JSONEncoder().encode(UnlockEntityResponse(success: success)), onSended: nil)

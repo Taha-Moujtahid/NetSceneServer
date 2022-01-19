@@ -9,6 +9,7 @@ import Foundation
 
 struct ReadLobbiesMessage : Codable , NetMessage{
     static var messageType = "ReadLobbiesMessage"
+    var nonce : String = "ReadLobbiesMessage"
 }
 
 struct ReadLobbiesResponse : Codable , NetMessage{

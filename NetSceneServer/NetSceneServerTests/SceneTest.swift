@@ -21,32 +21,32 @@ class SceneTest: XCTestCase {
 
     func testSceneAddAndContains() throws {
         var scene = Scene()
-        let sceneObject = SceneObject(objectID: "testObject");
+        let sceneObject = SceneObject(objectType: "testObject");
         
         XCTAssertTrue(scene.addObject(sceneObject))
-        XCTAssertTrue(scene.contains(objectID: "testObject"))
+        XCTAssertTrue(scene.contains(entityID: "testObject"))
     }
     
     func testSceneAddDuplicate() throws {
         var scene = Scene()
-        let sceneObject = SceneObject(objectID: "testObject");
+        let sceneObject = SceneObject(objectType: "testObject");
         
         XCTAssertTrue(scene.addObject(sceneObject))
         XCTAssertFalse(scene.addObject(sceneObject))
-        XCTAssertTrue(scene.contains(objectID: "testObject"))
+        XCTAssertTrue(scene.contains(entityID: "testObject"))
     }
     
     func testSceneRemove() throws {
         var scene = Scene()
-        let sceneObject = SceneObject(objectID: "testObject")
+        let sceneObject = SceneObject(objectType: "testObject")
         XCTAssertTrue(scene.addObject(sceneObject))
-        XCTAssertTrue(scene.contains(objectID: "testObject"))
-        scene.removeObject(objectID: "abcd")
-        scene.removeObject(objectID: "123")
-        scene.removeObject(objectID: "456")
-        XCTAssertTrue(scene.contains(objectID: "testObject"))
-        scene.removeObject(objectID: "testObject")
-        XCTAssertFalse(scene.contains(objectID: "testObject"))
+        XCTAssertTrue(scene.contains(entityID: "testObject"))
+        scene.removeObject(entityID: "abcd")
+        scene.removeObject(entityID: "123")
+        scene.removeObject(entityID: "456")
+        XCTAssertTrue(scene.contains(entityID: "testObject"))
+        scene.removeObject(entityID: "testObject")
+        XCTAssertFalse(scene.contains(entityID: "testObject"))
     }
 
     func testPerformanceExample() throws {

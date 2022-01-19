@@ -9,14 +9,14 @@ import Foundation
 
 class SceneObject : Entity, Decodable{
     
-    private var data : SceneObjectData?
+    private var data : SceneObjectData
     
     init(objectType : String){
         self.data = SceneObjectData(objectType: objectType, position: Vec3(0,0,0), rotation: Vec3(0,0,0))
     }
     
     func getData()->SceneObjectData{
-        return data!
+        return data
     }
     
     func setData(_ data: SceneObjectData){
@@ -28,10 +28,10 @@ class SceneObject : Entity, Decodable{
     }
     
     func addTag(_ tag: String) -> Bool{
-        if(data!.tags.contains(tag)){
+        if(data.tags.contains(tag)){
             return false
         }else{
-            data!.tags.append(tag)
+            data.tags.append(tag)
             return true
         }
     }
