@@ -7,19 +7,22 @@
 
 import Foundation
 
-struct ReadLobbiesMessage : Codable , NetMessage{
+struct ReadLobbiesMessage : Codable, NetMessage {
     static var messageType = "ReadLobbiesMessage"
-    var nonce : String = "ReadLobbiesMessage"
+    var messageType = "ReadLobbiesMessage"
 }
 
-struct ReadLobbiesResponse : Codable , NetMessage{
+struct ReadLobbiesResponse : Codable, NetMessage {
     static var messageType = "ReadLobbiesResponse"
+    var messageType = "ReadLobbiesResponse"
     var lobbies : [String]
 }
 
 extension NetSceneServerMessageHandler {
     func handleMessage(client: NetSceneClient, _ message : ReadLobbiesMessage?){
-        let lobbies = LobbyHandler.shared.lobbies.map({ lobby in lobby.id })
-        client.send(try! JSONEncoder().encode(ReadLobbiesResponse(lobbies: lobbies)) , onSended: nil)
+        let response = ReadLobbiesResponse(lobbies: LobbyHandler.shared.lobbies.map({ lobby in
+            lobby.id
+        }))
+        client.send(try! JSONEncoder().encode(response) , onSended: nil)
     }
 }

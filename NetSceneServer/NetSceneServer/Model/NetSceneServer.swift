@@ -24,15 +24,17 @@ class NetSceneServer : ObservableObject {
     static func startServer(){
         print("Starting the Server")
         if(NetSceneServer.listener == nil){
-            NetSceneServer.listener = try! NWListener(using: NWParameters.tcp, on: NWEndpoint.Port(51211))
+            NetSceneServer.listener = try! NWListener(using: NWParameters.udp, on: NWEndpoint.Port(51211))
         }
         
         if(NetSceneServer.listener!.state != .ready){
             NetSceneServer.listener!.newConnectionHandler = { connection in
                 connection.start(queue: queue)
+                //TODO: IMPLEMENT CLIENT TTL 
                 let newClient = NetSceneClient(connection: connection)
                 receiveNextMessage(client: newClient)
                 clients.append(newClient)
+                print("client connected: \(newClient.connection.endpoint) ")
             }
         
             NetSceneServer.listener!.start(queue: queue)

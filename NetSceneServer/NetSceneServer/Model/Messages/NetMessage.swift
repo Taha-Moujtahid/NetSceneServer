@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol NetMessage {
-    static var messageType : String { get }
+protocol NetMessage{
+    static var messageType : String {get set}
 }

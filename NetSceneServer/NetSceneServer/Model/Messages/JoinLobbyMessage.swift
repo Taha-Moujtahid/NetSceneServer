@@ -9,11 +9,13 @@ import Foundation
 
 struct JoinLobbyMessage : Codable , NetMessage{
     static var messageType = "JoinLobbyMessage"
+    var messageType = "JoinLobbyMessage"
     var lobbyID : String
 }
 
 struct JoinLobbyResponse : Codable , NetMessage{
     static var messageType = "JoinLobbyResponse"
+    var messageType = "JoinLobbyResponse"
     var success : Bool
 }
 

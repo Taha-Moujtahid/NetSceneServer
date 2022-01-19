@@ -11,9 +11,10 @@ struct NetSceneServerMessageHandler {
     
     //TODO: Make this Generic !
     func handleData(client : NetSceneClient, data : Data){
+        print("message \(data)")
         if let message = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] {
             if(message["messageType"] != nil){
-                print(message["messageType"])
+                print("client :\(client.connection.endpoint) -> \(message["messageType"]!)")
                 switch(message["messageType"] as! String){
                     
                 case JoinLobbyMessage.messageType:
