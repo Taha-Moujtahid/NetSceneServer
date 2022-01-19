@@ -24,7 +24,7 @@ class NetSceneServer : ObservableObject {
     static func startServer(){
         print("Starting the Server")
         if(NetSceneServer.listener == nil){
-            NetSceneServer.listener = try! NWListener(using: NWParameters.udp, on: NWEndpoint.Port(51211))
+            NetSceneServer.listener = try! NWListener(using: NWParameters.tcp, on: NWEndpoint.Port(51211))
         }
         
         if(NetSceneServer.listener!.state != .ready){
